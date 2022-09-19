@@ -49,6 +49,30 @@ variable "gcp_project" {
   type        = string
 }
 
+variable "instance_machine_type" {
+  description = "The machine type for the GCP instance"
+  type        = string
+  default     = "n1-standard-4"
+}
+
+variable "instance_os_image" {
+  description = "The OS image to use for the GCP instance"
+  type        = string
+  default     = "ubuntu-2204-lts"
+}
+
+variable "root_volume_size" {
+  description = "The size of the root volume in GB"
+  type        = number
+  default     = 128
+}
+
+variable "gpu_type" {
+  description = "The type of the GPU in the instance"
+  type        = string
+  default     = "nvidia-tesla-t4"
+}
+
 variable "additional_ports" {
   description = "Additional ports to open on the instance. Defaulted to ssh (port 22)"
   type        = list

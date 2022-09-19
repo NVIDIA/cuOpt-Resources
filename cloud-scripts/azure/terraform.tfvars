@@ -21,8 +21,8 @@
 
 # The following variables are required for Azure and have no defaults
 
-#private_key_path = "~/.ssh/id_rsa"
-#public_key_path = "~/.ssh/id_rsa.pub"
+private_key_path = "~/.ssh/id_rsa"
+public_key_path = "~/.ssh/id_rsa.pub"
 
 # Optional settings
 

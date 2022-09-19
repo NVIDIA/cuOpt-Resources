@@ -83,14 +83,14 @@ resource "google_compute_address" "ip" {
 
 resource "google_compute_instance" "cuopt_server" {
   name         = lower(random_pet.pet.id)
-  machine_type = "n1-standard-4"
+  machine_type = var.instance_machine_type
   zone         = "${var.gcp_region}-${var.gcp_zone}"
   tags         = [lower(random_pet.pet.id)]  
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-2204-lts"
-      size  = 128
+      image = var.instance_os_image
+      size  = var.root_volume_size
     }
   }  
 
@@ -108,7 +108,7 @@ resource "google_compute_instance" "cuopt_server" {
 
   guest_accelerator = [
     {
-      type = "nvidia-tesla-t4"
+      type = var.gpu_type
       count = 1
     }
   ]
