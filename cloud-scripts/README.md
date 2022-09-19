@@ -33,7 +33,7 @@ The minimum requirements for a cuOpt server are:
 
 Open a cloud shell for your chosen cloud: [AWS](https://docs.aws.amazon.com/cloudshell/latest/userguide/working-with-cloudshell.html), [Azure](https://learn.microsoft.com/en-us/azure/cloud-shell/overview), or [GCP](https://cloud.google.com/shell/docs/using-cloud-shell).
 
-The GCP and Azure shells have Terraform pre-installed. For AWS only, follow the [instructions here](https://learn.hashicorp.com/tutorials/terraform/install-cli) for Amazon Linux to install Terraform in AWS CloudShell.
+The GCP and Azure shells have Terraform pre-installed. For AWS only, the [instructions here](https://learn.hashicorp.com/tutorials/terraform/install-cli) show how to install Terraform in AWS CloudShell. These instructions are included in the [aws-install-terraform.sh](aws/aws-install-terraform.sh) wrapper script.
 
 Clone this repository in the cloud shell, then skip ahead to [Running the cuOpt cloud scripts](#running-the-cuopt-cloud-scripts).
 
