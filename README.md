@@ -1,5 +1,7 @@
 # cuOpt Resources
-A collection of resources demonstrating the setup and use of NVIDIA cuOpt via Python and REST based microservice APIs.
+NVIDIA cuOpt is an Operations Research optimization API using AI to help developers create complex, real-time fleet routing workflows on NVIDIA GPUs.
+This repository contains a collection of resources demonstrating the setup and use of NVIDIA cuOpt via Python and REST based microservice APIs. 
+
 
 The cuOpt-Resources repository is under [MIT License](LICENSE.md)
 
@@ -9,7 +11,7 @@ Use of NVIDIA cuOpt is subject to the [End User License Agreement](https://docs.
 
 ## [NVIDIA cuOpt](https://developer.nvidia.com/cuopt-logistics-optimization)
 
-cuOpt is a GPU-accelerated combinatorial optimization solver currently focused on the vehicle routing problem (VRP) and its variants. In addition to providing dramatically accelerated, world class solutions to some of the most difficult optimization problems, NVIDIA cuOpt prioritizes ease of use through high level Python and REST based microservice APIs
+cuOpt uses highly optimized GPU-accelerated solvers relying on heuristics, metaheuristics, and optimization. In addition to providing dramatically accelerated, world class solutions to some of the most difficult optimization problems, NVIDIA cuOpt prioritizes ease of use through high level Python and REST based microservice APIs
 
  [cuOpt Docs](https://docs.nvidia.com/cuopt/overview.html)
 
@@ -29,7 +31,7 @@ cuOpt is a GPU-accelerated combinatorial optimization solver currently focused o
 
 
 # Setup
-Whether deploying locally or in the cloud, an NGC account will be required.  For information about creating an NGC account and generating the required API key, see the following documentation:
+Whether deploying locally or in the cloud, an NVIDIA GPU Cloud (NGC) account will be required. NGC hosts a catalog of GPU-optimized software for AI developers. Access is free and it takes just a few minutes to register. For information about creating an NGC account and generating the required API key, see the following documentation:
 
 [Registering and Activating NGC Account](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account)
 
@@ -37,7 +39,7 @@ Whether deploying locally or in the cloud, an NGC account will be required.  For
 ### Prerequisites
 * NVIDIA GPU and associated driver 450.80.02+
   * Pascal architecture or better
-* CUDA 11.0+
+* [CUDA](https://developer.nvidia.com/cuda-downloads) 11.0+
 * cuOpt Docker container downloaded from [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/cuopt/containers/cuopt)
 
 ### Instructions
