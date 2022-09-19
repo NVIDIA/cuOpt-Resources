@@ -1,5 +1,5 @@
 # AZURE
-A collection of scripts and resources to spin-up AZURE cuOpt instances
+A collection of scripts and resources to spin-up Azure cuOpt instances
 
 ## Resource groups
 
@@ -7,17 +7,16 @@ All of the Azure infrastructure for the cuOpt server is created in
 a resource group with the prefix "cuopt".  This resource group
 is displayed in the output from the Terraform script.
 
-Unlike the GCP and AWS scripts, the Azure script creates a new VPC
-in the resoure group.
+The Azure script creates a new VPC in the resoure group.
 
-The Azure resource group location may be changed in *terraform.tfvars* (default "eastus")
+The Azure resource group location may be changed in *terraform.tfvars* (default eastus)
 ```bash
 resource_group_location = "westus"
 ```
 
 ## Setting the user
 
-The admin user on the instance can be changed in *terraform.tfvars* (default "azureuser")
+The admin user on the instance can be changed in *terraform.tfvars* (default azureuser)
 ```bash
 user = cuopt-user
 ```
@@ -34,14 +33,14 @@ their defaults in *terraform.tfvars*.
 
 ## Setting the root volume size
 
-The root volume size may be set in *terraform.tfvars (default is 128)
+The root volume size may be set in *terraform.tfvars* (default is 128)
 ```bash
 instance_root_volume_size = 64
 ```
 
 ## Setting the instance size
 
-The instance type may be set in *terraform.tfvars* (default is n1-standard-4)
+The instance size may be set in *terraform.tfvars* (default is Standard_NC6s_v2)
 ```bash
 instance_size = "Standard_NC12s_v2"
 ```

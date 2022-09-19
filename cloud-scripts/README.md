@@ -15,7 +15,7 @@ Terminology:
 * `build host` means the computer where cloud scripts are run to create a cuOpt server
 * `cloud shell` means a Linux shell that is available from the console in AWS, GCP, and Azure, and which is integrated with your account
 
-See the additional README files in the [AWS](aws/), [GCP](gcp/), and [Azure](azure) for some cloud-specific details.
+See the additional README files in the [aws](aws/), [gcp](gcp/), and [azure](azure) subdirectories for some cloud-specific details.
 
 ### Minimum Server Specs
 
@@ -64,7 +64,7 @@ Authenticate the CLI to the cloud:
 
 ### Ensure ssh Keys Exist
 
-A ssh key pair is required during cuOpt installation. Check to see if you already have a key pair available. (A key pair is usually made up of two files having the same name, one of which has the extension *.pub* and one of which has no extension).
+A ssh key pair is required during cuOpt installation. Check to see if you already have a key pair available. (A key pair is usually made up of two files having the same name, one of which has the extension *.pub* and one of which has no extension)
 
 ```bash
 $ ls ~/.ssh/
@@ -79,13 +79,13 @@ $ ssh-keygen -t RSA -b 4096
 
 ### Navigate to the Cloud Subdirectory
 
-The cuOpt cloud scripts will always be run from the subdirectories containing cloud-specific configuration files.
+The cuOpt cloud scripts will always be run from the subdirectories containing cloud-specific configuration files
 
 ```bash
 $ cd cloud-scripts/aws # or gcp, or azure
 ```
 
-You must initialize Terraform the first time you use it from a particular directory.
+You must initialize Terraform the first time you use it from a particular directory
 ```bash
 $ terraform init
 ```
@@ -101,7 +101,7 @@ Required values are listed in *terraform.tfvars*. If you do not set them, the sc
 
 ### Creating the cuOpt Server
 
-From your chosen cloud subdirectory, run `build-cuopt-server.sh`. You will be prompted for your NGC api-key. When it completes the script will print summary information that you can use to ssh to the server along with the cuOpt url(s).
+From your chosen cloud subdirectory, run `build-cuopt-server.sh`. You will be prompted for your NGC API key. When it completes the script will print summary information that you can use to ssh to the server, along with the cuOpt url(s)
 
 ```bash
 $ ../build-cuopt-server.sh
@@ -114,7 +114,6 @@ outputs = {
   "private_key_path" = "~/.ssh/id_rsa"
   "user" = "tmckay"
 }
-
 The address of the cuOpt api server is 34.75.2.43:30000
 The address of the cuOpt notebook server is 34.75.2.43:30001
 ```
@@ -132,14 +131,14 @@ $ ../teardown-cuopt-server.sh
 #### Specifying the cuOpt Server Type
 
 By default the cuOpt API service is launched when the server is created. You may launch a Jupyter notebook server instead, or launch both.
-Set the `cuopt_server_type` variable in *terraform.tfvars*.
+Set the `cuopt_server_type` variable in *terraform.tfvars*
 ```bash
 cuopt_server_type = "both" # may also be api (default), or jupyter
 ```
 
-#### Setting the NGC api-key Value in $API_KEY
+#### Setting the NGC API key Value in $API_KEY
 
-You may set the environment variable `API_KEY` to avoid being prompted for your NGC key
+You may set the environment variable `API_KEY` to prevent being prompted for your NGC API key
 
 ```bash
 $ export API_KEY=yourvalidapikey
@@ -148,7 +147,7 @@ $ export API_KEY=yourvalidapikey
 
 ### Restricting Network Access 
 
-By default, access is unrestricted to ssh and the cuOpt ports on the server. The following values in the *terraform.tfvars* files can be used to restrict access to those ports. 
+By default, access is unrestricted to ssh and the cuOpt ports on the server. The following values in the *terraform.tfvars* files can be used to restrict access to those ports. It is recommended that you restrict access to trusted addresses.
 
 * AWS
 
@@ -224,14 +223,14 @@ Clone this repository and navigate to the cloud-local subdirectory
 $ cd cloud-scripts/cloud-local
 ```
 
-You will be prompted for your NGC api-key, or you can [set API_KEY](#setting-the-ngc-api-key-value-in-api_key) to prevent the prompt.
+You will be prompted for your NGC API key, or you can [set API_KEY](#setting-the-ngc-api-key-value-in-api_key) to prevent the prompt.
 
-Set `SERVER_TYPE` to contorl which cuOpt services are started
+Set `SERVER_TYPE` to control which cuOpt services are started
 ```
 $ export SERVER_TYPE=both # may also be api (default), or jupyter
 ```
 
-Run the installation script.
+Run the installation script
 ```bash
 $ ./local-build-cuopt-server.sh
 Enter a NGC api-key to access cuOpt resources:
@@ -251,14 +250,12 @@ The address of the cuOpt notebook server is localhost:30001
 
 ### Shutting down the cuOpt service(s) temporarily
 
-Login to the server.
-
-To stop the cuOpt service(s)
+From the server
 ```bash
 $ kubectl scale deployment --all --replicas=0 -n cuopt-server
 ```
 
-To restart the cuOpt services(s)
+To restart the cuOpt service(s)
 ```bash
 $ kubectl scale deployment --all --replicas=1 -n cuopt-server
 ```
@@ -267,7 +264,7 @@ $ kubectl scale deployment --all --replicas=1 -n cuopt-server
 
 If you are going to shutdown the cuOpt server and restart it at a later date, follow this procedure.
 
-Login to the server.
+From the server
 
 ```bash
 kubectl scale deployment --all --replicas=0 -n cuopt-server
@@ -276,7 +273,7 @@ Kubectl get pods -n cuopt-server # wait until no pods are reported
 
 Now the server may be shutdown.
 
-Login to the server when it is restarted.
+Restart cuOpt when the server is restarted
 
 ```bash
 $ scripts/wait-cnc.sh # waits for cloud-native-core to complte restart
@@ -285,19 +282,18 @@ $ kubectl scale deployment --all --replicas=1 -n cuopt-server
 
 ## Troubleshooting
 
-If you cannot connect to the cuOpt services, here are some things to try
+If you cannot connect to the cuOpt services, here are some things to try.
 
 ### Check the installation logs
 
-Login to the server.
-
-Check the files in the `logs` directory for any reported errors.
+Login to the server. Check the files in the `logs` directory for any reported errors.
 
 In the Cloud Local case, the logs directory will be located in cloud-scripts/cloud-local/logs
 
 ### Check localhost connections to cuOpt
 
-Login to the server
+From the server
+
 ```bash
 # if you ran the api server
 curl -s -o /dev/null -w '%{http_code}\n' localhost:30000/cuopt/docs
@@ -312,8 +308,6 @@ If curl returns `200` but you can't connect to the service from another machine,
 
 ### Check which services were deployed
 
-Login to the build host
-
 The *build-cuopt-server.sh* script will generate a `values.sh` file which includes the server type that was deployed.
 ```bash
 $ cd cloud-scripts/aws # or azure, or gcp
@@ -327,7 +321,7 @@ user=tmckay
 
 ### Check the status of the cuOpt pod
 
-Login to the server
+From the server
 
 ```bash
 $ kubectl get pods -n cuopt-server
@@ -336,17 +330,17 @@ cuopt-cuopt-deployment-6887b4769-bbrdm   1/1     Running   0          25m
 ```
 
 Status should say 'Running'.
-If the status is 'ErrImagePull' or 'ImagePullBackoff' then you specified an invalid NGC api-key
+If the status is 'ErrImagePull' or 'ImagePullBackoff' then you specified an invalid NGC API key
 
 There are two ways to repair this:
 
-* Destroy the machine and rerun the build script from the build host with a valid NGC api-key
+* Destroy the machine and rerun the build script from the build host with a valid NGC API key
   ```bash
   $ ../teardown-cuopt-server.sh
   $ ../build-cuopt-server.sh
   ```
   
-* Reinstall the cuOpt helm chart locally with a valid NGC api-key
+* Reinstall the cuOpt helm chart locally with a valid NGC API key
   ```bash
   $ export API_KEY=myvalidapikey
   $ export SERVER_TYPE=both # or jupyter, or api
@@ -361,7 +355,7 @@ There are two ways to repair this:
 
 ### Check the status of cloud-native-core
 
-Login to the server.
+From the server
 
 ```bash
 $ kubectl get pods -n kube-system

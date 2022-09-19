@@ -4,7 +4,7 @@ A collection of scripts and resources to spin-up AWS cuOpt instances
 ## Installing Terraform in CloudShell
 
 Each time you open CloudShell, you will have to install Terraform.
-The aws-install-terraform.sh convenience script will do this for you.
+The *aws-install-terraform.sh* convenience script will do this for you
 ```bash
 # From a CloudShell Amazon Linux Terminal
 $ ./aws-install-terraform.sh
@@ -16,7 +16,7 @@ The Terraform scripts assume that your AWS account has a default VPC and
 uses that for the server network. If your account does not have a default VPC,
 see the Amazon documentation on how to create a default VPC.
 If you do not want to use a default VPC, see the Terraform AWS documentation
-on how to create a new VPC and modify the main.tf file accordingly.
+on how to create a new VPC and modify the *main.tf* file accordingly.
 
 ## Setting your region
 
