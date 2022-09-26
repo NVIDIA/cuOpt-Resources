@@ -55,7 +55,7 @@ Whether deploying locally or in the cloud, an NVIDIA GPU Cloud (NGC) account wil
 
 #### Alternative "Cloud Local"
 
-If you don't have an AWS, Azure, or GCP account or you want to run cuOpt with cloud-native-core on a server that you create yourself, read on and look for the *Cloud Local* section in the [cloud-scripts directory](cloud-scripts/) README.
+If you don't have an AWS, Azure, or GCP account or you want to run cuOpt with NVIDIA Cloud Native Core on a server that you create yourself, read on and look for the *Cloud Local* section in the [cloud-scripts directory](cloud-scripts/) README.
 
 ### Instructions
 * Clone the cuOpt-Resources repo

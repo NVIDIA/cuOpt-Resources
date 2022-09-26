@@ -12,8 +12,10 @@ For the [Cloud Local](#cloud-local) case, you will build the server yourself and
 Terminology:
 
 * `cuOpt server` or `server` means the machine that will run cuOpt
-* `build host` means the computer where cloud scripts are run to create a cuOpt server
+* `build host` means a Linux machine where cloud scripts are run to create a cuOpt server
 * `cloud shell` means a Linux shell that is available from the console in AWS, GCP, and Azure, and which is integrated with your account
+
+You may use a Linux machine or WSL2 as a build host. If you do not have access to a Linux machine or WSL2, you may use a cloud shell as a build host.
 
 See the additional README files in the [aws](aws/), [gcp](gcp/), and [azure](azure) subdirectories for some cloud-specific details.
 
