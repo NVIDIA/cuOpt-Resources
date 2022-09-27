@@ -12,6 +12,7 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+Please craft a minimal bug report by removing unecessary steps and data. This helps us reproduce the issue you're having and resolve the issue more quickly.
 1.  Attach or paste to this bug report
      a. Sample Python script for cuOpt  OR
      b. YAML configuration file   OR
