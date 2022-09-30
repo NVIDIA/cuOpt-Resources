@@ -1,0 +1,9 @@
+{
+    "Restricted_1":{
+        "type": "Restricted",
+        "min_extent": [2.0, 10.0, 0.01],
+        "max_extent": [4.0, 12.0, 1.01],
+        "color": [0.83, 0, 0],
+        "weight": 99999
+    }
+}

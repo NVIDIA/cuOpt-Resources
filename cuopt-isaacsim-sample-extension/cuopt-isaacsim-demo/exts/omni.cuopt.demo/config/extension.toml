@@ -1,0 +1,23 @@
+[package]
+version = "0.1.0"
+title = "cuOpt Isaac Sim Demo"
+description="Extension showing the use of the cuOpt microservice in Isaac Sim"
+
+readme  = "docs/README.md"
+changelog = "docs/CHANGELOG.md"
+preview_image = "data/preview.png"
+icon = "data/icon.png"
+
+repository = "https://github.com/NVIDIA/cuOpt-Resources/"
+
+category = "Example"
+
+keywords = ["kit", "example", "cuopt", "isaac", "sim", "demo"]
+
+[dependencies]
+"omni.kit.uiapp" = {}
+"omni.isaac.core" = {}
+"omni.isaac.ui" = {}
+
+[[python.module]]
+name = "omni.cuopt.demo"

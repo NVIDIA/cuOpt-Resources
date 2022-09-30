@@ -1,0 +1,12 @@
+# all folders starting with _ are local
+_*/
+
+.DS_Store
+**/.vscode
+
+# byte-compiled python files
+*.py[cod]
+
+/.vs
+
+cuopt-isaacsim-sample-extension/cuopt-isaacsim-demo/app
