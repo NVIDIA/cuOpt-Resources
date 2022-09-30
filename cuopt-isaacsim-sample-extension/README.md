@@ -22,7 +22,9 @@ A more detailed list of requirements related to Omniverse Isaac Sim can be found
 4. Click the gear icon to add the path to the extension
 5. In the "Extension Search Paths" window click the plus (+) icon to add a new search path
 6. Enter the path to the demo extension which will be:
-`{path_to_cloned_cuOpt-Resources_repo}/cuopt-isaacsim-sample-extension/cuopt-isaacsim-demo/exts`
+
+    `{path_to_cloned_cuOpt-Resources_repo}/cuopt-isaacsim-sample-extension/cuopt-isaacsim-demo/exts`
+
 7. In the search bar within the Extensions window entering "cuOpt" should return a result for "CUOPT ISAAC SIM DEMO"
 8. Enable the CUOPT ISAAC SIM DEMO extension. Optionally, you can activate "AUTOLOAD" to prevent needing to activate the extension next time you open Isaac Sim
 
