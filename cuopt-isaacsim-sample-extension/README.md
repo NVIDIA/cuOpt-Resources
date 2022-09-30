@@ -43,7 +43,7 @@ NVIDIA cuOpt &rarr; cuOpt Microservice &rarr; cuOpt Isaac Sim Demo
    - Load Sample Warehouse
    - Load Waypoint Graph
    - Load Orders
-   - Load Vehicles
+   - Load Vehicles (**note** : by default the vehilces will start at node 0 and will not be displayed in the viewport)
    - Load Semantic Zone
 3. Explore the scene setup. More information about basic navigation within Omniverse applications can be found [here](https://www.youtube.com/watch?v=kb4ZA3TyMak)
 4. When ready, under the Update/Run cuOpt section of the extension click UPDATE to capture the current state.  Then click SOLVE. The optimized routes should now be shown.
