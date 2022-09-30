@@ -11,7 +11,7 @@ This extension contains a subset of the code used to create the NVIDIA GTC Fall 
  or Windows 10
  - RTX capable NVIDIA GPU (GeForce RTX 2070 or newer)
  - Running instance of the cuOpt microservice ([local](https://github.com/NVIDIA/cuOpt-Resources#local-environment) or [cloud](https://github.com/NVIDIA/cuOpt-Resources#cloud-environment)) running on Linux or WSL2
- - [NVIDIA Omniverse Luancher](https://www.nvidia.com/en-us/omniverse/download/)
+ - [NVIDIA Omniverse Luancher](https://www.nvidia.com/en-us/omniverse/download/). Additional information about the Omniverse Launcher can be found [here](https://www.youtube.com/watch?v=WqvS96z_3cw)
 
 A more detailed list of requirements related to Omniverse Isaac Sim can be found [here](https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/requirements.html)
 
@@ -28,7 +28,7 @@ A more detailed list of requirements related to Omniverse Isaac Sim can be found
 7. In the search bar within the Extensions window entering "cuOpt" should return a result for "CUOPT ISAAC SIM DEMO"
 8. Enable the CUOPT ISAAC SIM DEMO extension. Optionally, you can activate "AUTOLOAD" to prevent needing to activate the extension next time you open Isaac Sim
 
-Additional information on how custom extension are linked can be found connecting Omniverse extensions can be found [here](https://www.youtube.com/watch?v=eGxV_PGNpOg)
+Additional information on how custom extensions are linked can be found connecting Omniverse extensions can be found [here](https://www.youtube.com/watch?v=eGxV_PGNpOg)
 
 A general overview of the Omniverse Extension Manager can be found [here](https://www.youtube.com/watch?v=LcGJmmVQAOU)
 
