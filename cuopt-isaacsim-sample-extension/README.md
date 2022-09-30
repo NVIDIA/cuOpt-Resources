@@ -28,28 +28,28 @@ A more detailed list of requirements related to Omniverse Isaac Sim can be found
 7. In the search bar within the Extensions window entering "cuOpt" should return a result for "CUOPT ISAAC SIM DEMO"
 8. Enable the CUOPT ISAAC SIM DEMO extension. Optionally, you can activate "AUTOLOAD" to prevent needing to activate the extension next time you open Isaac Sim
 
-Additional information on how custom extensions are linked can be found connecting Omniverse extensions can be found [here](https://www.youtube.com/watch?v=eGxV_PGNpOg)
+Additional information on how custom extensions are linked can be found [here](https://www.youtube.com/watch?v=eGxV_PGNpOg)
 
 A general overview of the Omniverse Extension Manager can be found [here](https://www.youtube.com/watch?v=LcGJmmVQAOU)
 
 ## Use
-Once the extension has been activated the cuOpt demo extension can be found along the top of Isaac Sim window, and can be activated by going to 
+Once the extension has been activated the cuOpt demo can be found along the top of Isaac Sim window (labeled NVIDIA cuOpt), and can be displayed by  
 
 NVIDIA cuOpt &rarr; cuOpt Microservice &rarr; cuOpt Isaac Sim Demo
 
 ### With the extension now active
-1. Test the connection to your running cuOpt microservice by entering the IP and port for the running service.  Click TEST.  If you see "SUCCESS: cuOpt Microservice is Running" proceed to step 2.  Otherwise, ensure that your cuOpt microservice is setup and running [Instructions](https://github.com/NVIDIA/cuOpt-Resources#local-environment)
+1. Test the connection to your running cuOpt microservice by entering the IP and port for the running service.  Click TEST.  If you see "SUCCESS: cuOpt Microservice is Running" proceed to step 2.  Otherwise, ensure that your cuOpt microservice is setup and running. Instructions can be found [here](https://github.com/NVIDIA/cuOpt-Resources#local-environment)
 2. Under the Optimization Problem Setup section of the extension click "LOAD" for each element of the problem in order, from top to bottom: 
    - Load Sample Warehouse
    - Load Waypoint Graph
-   - Load Orders
+   - Load Orders (shown via green waypoint graph nodes)
    - Load Vehicles (**note** : by default the vehilces will start at node 0 and will not be displayed in the viewport)
    - Load Semantic Zone
 3. Explore the scene setup. More information about basic navigation within Omniverse applications can be found [here](https://www.youtube.com/watch?v=kb4ZA3TyMak)
 4. When ready, under the Update/Run cuOpt section of the extension click UPDATE to capture the current state.  Then click SOLVE. The optimized routes should now be shown.
-5. Next, move the red semantic zone (Restricted Area) over one of the edges of the waypoint graph that is currently part of a route
+5. Next, move the red semantic zone (Restricted Area) over one of the edges in the waypoint graph that is currently part of a route
 6. Click UPDATE to capture the current state, then click SOLVE to see a new optimized solution that will avoid the edge covered by the red restricted area.
-   - Note if the restricted zone is placed over an edge that is the only path to a given order the solver will still use that edge, but the solution cost will be extremely high.
+   - **note** : if the restricted zone is placed over an edge that represents the only path to a given order, the solver will still use that edge, but the solution cost will be extremely high.
   
-7. Explore the code by clicking the Open Source Code button at the top of the extension.
+7. Explore the source code by clicking the Open Source Code button at the top of the extension.
 
