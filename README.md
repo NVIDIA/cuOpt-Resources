@@ -28,6 +28,8 @@ cuOpt uses highly optimized GPU-accelerated solvers relying on heuristics, metah
   * [Routing Optimization](notebooks/routing/microservice) 
 <br><br>
 * [Cloud deployments scripts for AWS, Azure, and GCP](cloud-scripts/)
+<br><br>
+* [Demo Extension](cuopt-isaacsim-sample-extension/) showing cuOpt in Omniverse Isaac Sim
 
 
 # Setup
