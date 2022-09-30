@@ -45,7 +45,7 @@ NVIDIA cuOpt &rarr; cuOpt Microservice &rarr; cuOpt Isaac Sim Demo
    - Load Orders
    - Load Vehicles
    - Load Semantic Zone
-3. Explore the scene setup
+3. Explore the scene setup. More information about basic navigation within Omniverse applications can be found [here](https://www.youtube.com/watch?v=kb4ZA3TyMak)
 4. When ready, under the Update/Run cuOpt section of the extension click UPDATE to capture the current state.  Then click SOLVE. The optimized routes should now be shown.
 5. Next, move the red semantic zone (Restricted Area) over one of the edges of the waypoint graph that is currently part of a route
 6. Click UPDATE to capture the current state, then click SOLVE to see a new optimized solution that will avoid the edge covered by the red restricted area.
