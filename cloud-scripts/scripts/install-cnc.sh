@@ -23,6 +23,7 @@
 
 git clone https://github.com/NVIDIA/cloud-native-core
 cd cloud-native-core/playbooks
+git checkout 24b8bb23fc8fc8bae0d88c8d6f23169204c4b8cc
 cat << EOF > hosts
 [master]
 localhost ansible_connection=local
