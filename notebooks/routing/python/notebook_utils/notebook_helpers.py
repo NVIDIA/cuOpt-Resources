@@ -25,16 +25,15 @@ import matplotlib.font_manager as fm
 
 # Used to plot the Co-ordinates
 
-
 def gen_plot(df):
-    plt.figure(figsize=(10, 10))
+    plt.figure(figsize=(11, 11))
     plt.scatter(
         df["xcord"][:1],
         df["ycord"][:1],
         label="Depot",
         color="Green",
         marker="o",
-        s=100,
+        s=25,
     )
     plt.scatter(
         df["xcord"][1::],
@@ -42,7 +41,7 @@ def gen_plot(df):
         label="Locations",
         color="Red",
         marker="o",
-        s=100,
+        s=25,
     )
     plt.xlabel("x - axis")
     # frequency label
@@ -56,9 +55,8 @@ def gen_plot(df):
         plt.annotate(
             label,
             (df["xcord"][i], df["ycord"][i]),
-            fontproperties=fm.FontProperties(size=20),
+            fontproperties=fm.FontProperties(size=12),
         )
-
     return plt
 
 
@@ -104,10 +102,15 @@ def show_vehicle_routes(routes, locations):
 def map_vehicle_routes(df, route, colors):
     plt = gen_plot(df)
     veh_ids = route.truck_id.unique().to_numpy()
+    idx = 0
+    vid_map = {}
+    for v_id in veh_ids:
+        vid_map[v_id] = idx
+        idx = idx + 1
 
     for v_id in veh_ids:
         plt = add_arrows(
-            df, route[route.truck_id == v_id], plt, color=colors[v_id]
+            df, route[route.truck_id == v_id], plt, color=colors[vid_map[v_id]]
         )
 
     return plt
