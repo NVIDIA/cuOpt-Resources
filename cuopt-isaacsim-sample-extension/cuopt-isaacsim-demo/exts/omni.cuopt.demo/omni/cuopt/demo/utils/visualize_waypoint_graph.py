@@ -150,7 +150,7 @@ class NetworkSimpleViz:
         vehicle_data = routes["vehicle_data"]
         for i, v_id in enumerate(vehicle_data.keys()):
             route_material = self.get_route_material(stage, i)
-            v_routes = vehicle_data[v_id]["routes"]
+            v_routes = vehicle_data[v_id]["route"]
             for j in range(0, len(v_routes)-1):
                 edge_prim_path = f'{waypoint_graph_edge_path}/Edge_{v_routes[j]}_{v_routes[j+1]}'
                 edge_prim = stage.GetPrimAtPath(edge_prim_path)

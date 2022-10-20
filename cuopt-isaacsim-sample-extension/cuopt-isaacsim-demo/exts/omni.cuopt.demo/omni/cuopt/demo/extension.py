@@ -444,13 +444,14 @@ class cuOptMicroserviceExtension(omni.ext.IExt):
             "max_lateness_per_route": None
             }
 
+        
         # Preprocess network, fleet and task data
         waypoint_graph_data, fleet_data, task_data = preprocess_cuopt_data(self._waypoint_graph_model,
                                                                            self._orders_obj,
                                                                            self._vehicles_obj)
 
         cuopt_server = cuOptRunner(cuopt_url)
-        print(waypoint_graph_data)
+
         # Initialize server data and call for solve
         cuopt_server.set_environment_data(waypoint_graph_data)
         cuopt_server.set_fleet_data(fleet_data)
@@ -472,7 +473,7 @@ class cuOptMicroserviceExtension(omni.ext.IExt):
             for v_id, data in routes['vehicle_data'].items():
                 message = message + "For vehicle -" + str(v_id) + " route is: \n"
                 path = ""
-                route_ids = data["routes"]
+                route_ids = data["route"]
                 for index, route_id in enumerate(route_ids):
                     path += str(route_id)
                     if index != (len(route_ids) - 1):
