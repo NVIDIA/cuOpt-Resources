@@ -21,11 +21,11 @@
 
 def preprocess_cuopt_data(graph, task, fleet):
 
-    waypoint_graph_data = {
+    waypoint_graph_data = {'waypoint_graph': {0:{
         "offsets": graph.offsets,
         "edges":   graph.edges,
-        "weights": graph.weights,
-    }   
+        "weights": graph.weights
+    }}}
 
     fleet_data = {
         "vehicle_locations": fleet.graph_locations,

@@ -40,10 +40,11 @@ def gen_plot(df):
         )
     return plt
 
+
 # Used to plot arrows
-def add_arrows(df, routes, plt, color="green"):
+def add_arrows(df, route, plt, color="green"):
     prev_cord = ()
-    for i, label in enumerate(routes["route"].to_numpy()):
+    for i, label in enumerate(route):
         if i > 0:
             plt.annotate(
                 "",
@@ -63,54 +64,6 @@ def add_arrows(df, routes, plt, color="green"):
     return plt
 
 
-# Prints vehicle routes
-def show_vehicle_routes(routes, locations):
-    vehicles = routes.truck_id.unique()
-    for id in vehicles:
-        print("For vehicle -", id, "route is: \n")
-        route = routes[routes.truck_id == id]
-        path = ""
-        route_ids = route.route.to_numpy()
-        for index, route_id in enumerate(route_ids):
-            path += locations[route_id]
-            type(route_ids)
-            if index != (len(route_ids) - 1):
-                path += "->"
-        print(path + "\n\n")
-
-
-# Map vehicle routes
-def map_vehicle_routes(df, route, colors):
-    plt = gen_plot(df)
-    veh_ids = route.truck_id.unique()
-    idx = 0
-    vid_map = {}
-    for v_id in veh_ids:
-        vid_map[v_id] = idx
-        idx = idx + 1
-
-    for v_id in veh_ids:
-        plt = add_arrows(
-            df, route[route.truck_id == v_id], plt, color=colors[vid_map[v_id]]
-        )
-
-    return plt
-
-
-# Convert the solver response from the server to a cuDF dataframe
-def create_solution_dataframe(solver_resp):
-    solution = solver_resp["vehicle_data"]["location"]
-    df = {}
-    df["route"] = []
-    df["truck_id"] = []
-    df["location"] = []
-    for vid, route in solution.items():
-        df["location"] = df["location"] + route
-        df["truck_id"] = df["truck_id"] + [vid] * len(route)
-    df["route"] = df["location"]
-    return pd.DataFrame(df)
-
-
 # Convert the solver response from the server to a cuDF dataframe
 # for waypoint graph problems
 def get_solution_df(resp):
@@ -120,16 +73,54 @@ def get_solution_df(resp):
     df["route"] = []
     df["truck_id"] = []
     df["location"] = []
-    df["types"] = []
+    types = []
 
     for vid, route in solution.items():
-        df["location"] = df["location"] + route["routes"]
-        df["truck_id"] = df["truck_id"] + [vid] * len(route["routes"])
-        df["types"] = df["types"] + route["type"]
-
+        df["location"] = df["location"] + route["route"]
+        df["truck_id"] = df["truck_id"] + [vid] * len(route["route"])
+        if "type" in list(route.keys()):
+            types = types + route["type"]
+    if len(types) != 0:
+        df["types"] = types
     df["route"] = df["location"]
 
     return pd.DataFrame(df)
+
+
+# Prints vehicle routes
+def show_vehicle_routes(resp, locations):
+
+    solution = resp["vehicle_data"]
+    for id in list(solution.keys()):
+        route = solution[id]["route"]
+        print("For vehicle -", id, "route is: \n")
+        path = ""
+        for index, route_id in enumerate(route):
+            path += locations[route_id]
+            if index != (len(route) - 1):
+                path += "->"
+        print(path + "\n\n")
+
+
+# Map vehicle routes
+def map_vehicle_routes(df, resp, colors):
+
+    solution = resp["vehicle_data"]
+
+    plt = gen_plot(df)
+    veh_ids = list(solution.keys())
+    idx = 0
+    vid_map = {}
+    for v_id in veh_ids:
+        vid_map[v_id] = idx
+        idx = idx + 1
+
+    for v_id in veh_ids:
+        plt = add_arrows(
+            df, solution[v_id]["route"], plt, color=colors[vid_map[v_id]]
+        )
+
+    return plt
 
 
 def create_from_file(file_path, is_pdp=False):
@@ -178,9 +169,28 @@ def create_from_file(file_path, is_pdp=False):
         if is_pdp:
             row["pickup_index"] = int(item[7])
             row["delivery_index"] = int(item[8])
-        df = pd.concat(
-            [df, pd.DataFrame(row, index=[0])],
-            ignore_index=True,
-        )
+        df = pd.concat([df, pd.DataFrame(row, index=[0])], ignore_index=True)
 
     return df, vehicle_capacity, vehicle_num
+
+def print_data(data, completed_tasks):
+    print("Completed tasks :", completed_tasks)
+    print("Pending tasks :", data["task_locations"])
+    print("Pickup indices :", data["pickup_indices"])
+    print("Delivery indices :", data["delivery_indices"])
+    print("Task Earliest :", data["task_earliest_time"])
+    print("Task Latest :", data["task_latest_time"])
+    print("Task Service :", data["task_service_time"])
+    print("Vehicle locations :", data["vehicle_locations"])
+    print("Vehicle earliest :", data["vehicle_earliest"])
+    print("Order vehicle match :", data["order_vehicle_match"])
+    
+def print_vehicle_data(response):
+    for veh_id, veh_data in response["vehicle_data"].items():
+        
+        print("\nVehicle Id :", veh_id)
+        print("Route :", veh_data["route"])
+        print("Type :", veh_data["task_type"])
+        print("Task Id :", veh_data["task_id"])
+        print("Arrival Stamp :", veh_data["arrival_stamp"])
+        print("--------------------------------------------------------")

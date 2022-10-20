@@ -42,7 +42,7 @@ class cuOptRunner():
     def set_environment_data(self, opti_environment):
 
         env_response = requests.post(
-        self.cuopt_url + f"set_waypoint_graph", params=self.data_parameters, json=opti_environment)
+        self.cuopt_url + f"set_cost_waypoint_graph", params=self.data_parameters, json=opti_environment)
         print(f"\nwaypoint_graph ENDPOINT RESPONSE: {env_response.json()}\n")
 
     

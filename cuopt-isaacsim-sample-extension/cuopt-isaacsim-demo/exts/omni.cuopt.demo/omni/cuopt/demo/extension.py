@@ -450,7 +450,7 @@ class cuOptMicroserviceExtension(omni.ext.IExt):
                                                                            self._vehicles_obj)
 
         cuopt_server = cuOptRunner(cuopt_url)
-        
+        print(waypoint_graph_data)
         # Initialize server data and call for solve
         cuopt_server.set_environment_data(waypoint_graph_data)
         cuopt_server.set_fleet_data(fleet_data)
