@@ -1,0 +1,15 @@
+c1_small
+
+VEHICLE
+NUMBER     CAPACITY
+ 20           200
+
+CUSTOMER
+CUST NO.  XCOORD.    YCOORD.    DEMAND   READY TIME  DUE DATE   SERVICE TIME
+ 
+    0     250        250          0          0       1824          0
+    1     387        297         10        200        270         90
+    2       5        297         10        955       1017         90
+    3     355        177         20        194        245         90
+    4      78        346         30        355        403         90
+    5     286        159         20        530        597         90

@@ -44,10 +44,14 @@ Whether deploying locally or in the cloud, an NVIDIA GPU Cloud (NGC) account wil
 * [CUDA](https://developer.nvidia.com/cuda-downloads) 11.0+
 * cuOpt Docker container downloaded from [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/cuopt/containers/cuopt)
 
+The [docker-utilities/container-env-setup](docker-utilities/container-env-setup/) directory contains a convenience script for setting up a new Ubuntu machine with NVIDIA drivers and Docker.
+
 ### Instructions
 * Clone the cuOpt-Resources repo
 * Pull the [cuOpt container from NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/cuopt/containers/cuopt)
 * Follow the instructions provided on NGC to run the cuOpt container and mount the example notebooks relevant to your desired API.
+
+The [docker-utilities/utitilies](docker-utilities/utilities/) directory contains convenience scripts for running cuOpt via Docker.
 
 ## Cloud Environment
 ### Prerequisites
