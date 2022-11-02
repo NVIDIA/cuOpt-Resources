@@ -21,7 +21,7 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-image=nvcr.io/nvidia/cuopt/cuopt:22.10
+image=nvcr.io/nvidia/cuopt/cuopt:22.10.01
 detached=False
 detached_log=
 
