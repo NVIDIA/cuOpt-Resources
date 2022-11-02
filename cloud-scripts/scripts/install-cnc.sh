@@ -21,14 +21,12 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-git clone https://github.com/NVIDIA/cloud-native-core
-cd cloud-native-core/playbooks
-git checkout 24b8bb23fc8fc8bae0d88c8d6f23169204c4b8cc
+git clone https://github.com/NVIDIA/cloud-native-stack
+cd cloud-native-stack/playbooks
+git checkout f40e641859cb9ba4c7a533ab79fe771a3cee87bf
 cat << EOF > hosts
 [master]
 localhost ansible_connection=local
 EOF
 
-sed -i 's,docs.projectcalico.org/v3.23/manifests/calico.yaml,docs.projectcalico.org/manifests/calico.yaml,g' *.yaml
-set -x
 ./setup.sh install
