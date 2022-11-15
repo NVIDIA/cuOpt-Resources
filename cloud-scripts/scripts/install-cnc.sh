@@ -28,5 +28,7 @@ cat << EOF > hosts
 [master]
 localhost ansible_connection=local
 EOF
-
+cat << EOF > cnc_version.yaml
+cnc_version: 8.0
+EOF
 ./setup.sh install
