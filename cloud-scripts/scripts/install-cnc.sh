@@ -31,4 +31,5 @@ EOF
 cat << EOF > cnc_version.yaml
 cnc_version: 8.0
 EOF
+sed -i 's,pip3 install ansible,pip3 install ansible==6.0.0,g' setup.sh
 ./setup.sh install
