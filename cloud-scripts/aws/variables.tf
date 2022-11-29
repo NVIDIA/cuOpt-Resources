@@ -67,6 +67,12 @@ variable "additional_security_groups" {
   default     = []
 }
 
+variable "create_security_group" {
+  description = "Whether or not to create a new security group for cuOpt. Security groups created outside of Terraform may be listed in additional_security_groups."
+  type = bool
+  default = true
+}
+
 variable "instance_ami_name" {
   description = "The pattern(s) used to filter available AMIs by name to select an image for the instance. May include wildcards."
   type        = list
