@@ -53,6 +53,7 @@ resource "aws_default_vpc" "default" {
 }
 
 resource "aws_security_group" "cuopt-server" {
+  count = var.create_security_group ? 1 : 0
   name = lower(random_pet.pet.id)
   vpc_id = "${aws_default_vpc.default.id}"
 
@@ -94,6 +95,11 @@ data "aws_security_groups" "additional-security-groups" {
   }
 }
 
+locals {
+  security_groups = var.create_security_group ? concat([aws_security_group.cuopt-server[0].id],
+                                                        data.aws_security_groups.additional-security-groups.ids) : data.aws_security_groups.additional-security-groups.ids
+}
+
 data "aws_ami" "osimage" {
   most_recent = true
 
@@ -125,7 +131,7 @@ resource "aws_instance" "cuopt_server" {
   instance_type = var.instance_type
   key_name = aws_key_pair.cuopt.key_name
   
-  vpc_security_group_ids = concat([aws_security_group.cuopt-server.id], data.aws_security_groups.additional-security-groups.ids)
+  vpc_security_group_ids = local.security_groups
   root_block_device {
     volume_size = var.instance_root_volume_size 
   } 
