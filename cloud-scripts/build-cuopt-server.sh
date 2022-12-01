@@ -21,9 +21,29 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
+if ! command -v python3 &> /dev/null; then
+   echo Python3 must be installed and on your path
+   exit 1
+fi
+
 DIR=$(dirname $(realpath "$0"))
 if [ "$API_KEY" == "" ]; then
     read -sp 'Enter a NGC api-key to access cuOpt resources: ' API_KEY
+fi
+
+if command -v helm &> /dev/null; then
+    echo helm installed, checking API_KEY
+    rm -f /tmp/cuopt-22.10.1.tgz
+    helm fetch https://helm.ngc.nvidia.com/nvidia/cuopt/charts/cuopt-22.10.1.tgz --username='$oauthtoken' --password=$API_KEY -d /tmp
+    if [ "$?" -eq 0 ]; then
+        rm -f /tmp/cuopt-22.10.1.tgz
+        echo API_KEY is valid
+    else
+        echo Failed to download cuopt helm chart, API_KEY is invalid. Please try again with a valid NGC api key.
+        exit 1
+    fi
+else
+    echo helm is not installed, skipping API_KEY check
 fi
 
 TF_VAR_api_key=$API_KEY terraform apply --auto-approve
@@ -31,7 +51,7 @@ if [ "$?" -ne 0 ]; then
     exit -1
 fi
 terraform output --json outputs > values.json
-$DIR/utilities/parse.py values.json values.sh
+python3 $DIR/utilities/parse.py values.json values.sh
 source values.sh
 
 nmsg="The address of the cuOpt notebook server is $ip:30001"
