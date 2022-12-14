@@ -33,10 +33,10 @@ fi
 
 if command -v helm &> /dev/null; then
     echo helm installed, checking API_KEY
-    rm -f /tmp/cuopt-22.10.1.tgz
-    helm fetch https://helm.ngc.nvidia.com/nvidia/cuopt/charts/cuopt-22.10.1.tgz --username='$oauthtoken' --password=$API_KEY -d /tmp
+    rm -f /tmp/cuopt-22.12.0.tgz
+    helm fetch https://helm.ngc.nvidia.com/nvidia/cuopt/charts/cuopt-22.12.0.tgz --username='$oauthtoken' --password=$API_KEY -d /tmp
     if [ "$?" -eq 0 ]; then
-        rm -f /tmp/cuopt-22.10.1.tgz
+        rm -f /tmp/cuopt-22.12.0.tgz
         echo API_KEY is valid
     else
         echo Failed to download cuopt helm chart, API_KEY is invalid. Please try again with a valid NGC api key.

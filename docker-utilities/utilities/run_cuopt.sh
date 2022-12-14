@@ -25,7 +25,7 @@ detached=False
 detached_log=
 jupyterserver=True
 requirements=
-image=nvcr.io/nvidia/cuopt/cuopt:22.10.01
+image=nvcr.io/nvidia/cuopt/cuopt:22.12
 localdir=
 have_realpath=$(command -v realpath)
 
