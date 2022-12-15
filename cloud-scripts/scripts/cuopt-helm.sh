@@ -24,7 +24,7 @@
 NAMESPACE=cuopt-server
 kubectl create namespace $NAMESPACE
 
-helm fetch https://helm.ngc.nvidia.com/nvidia/cuopt/charts/cuopt-22.10.1.tgz --username='$oauthtoken' --password=$API_KEY --untar
+helm fetch https://helm.ngc.nvidia.com/nvidia/cuopt/charts/cuopt-22.12.0.tgz --username='$oauthtoken' --password=$API_KEY --untar
 
 case $SERVER_TYPE in
   "jupyter")

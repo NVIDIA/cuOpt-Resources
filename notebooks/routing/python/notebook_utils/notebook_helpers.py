@@ -19,11 +19,11 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 
 # Used to plot the Co-ordinates
+
 
 def gen_plot(df):
     plt.figure(figsize=(11, 11))

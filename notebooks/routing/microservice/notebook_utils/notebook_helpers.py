@@ -19,7 +19,6 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import pandas as pd

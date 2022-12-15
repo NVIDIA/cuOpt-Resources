@@ -348,7 +348,7 @@ There are two ways to repair this:
   $ export SERVER_TYPE=both # or jupyter, or api
   $ helm list -n cuopt-server
   NAME              	NAMESPACE   	REVISION	UPDATED                                	STATUS  	CHART        	APP VERSION
-  nvidia-cuopt-chart	cuopt-server	1       	2022-09-19 14:11:45.677689124 +0000 UTC	deployed	cuopt-22.10.1	22.10.1
+  nvidia-cuopt-chart	cuopt-server	1       	2022-09-19 14:11:45.677689124 +0000 UTC	deployed	cuopt-22.12.0	22.12.0
   $ helm uninstall nvidia-cuopt-chart -n cuopt-server
   $ scripts/cuopt-helm.sh
   $ scripts/wait-cuopt.sh
