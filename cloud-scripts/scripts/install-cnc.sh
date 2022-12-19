@@ -20,10 +20,10 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
-
+sudo apt update -y
 git clone https://github.com/NVIDIA/cloud-native-stack
 cd cloud-native-stack/playbooks
-git checkout f40e641859cb9ba4c7a533ab79fe771a3cee87bf
+git checkout 34057d17252bf88ffe49eb4d623cdce026af06ce
 cat << EOF > hosts
 [master]
 localhost ansible_connection=local
@@ -31,5 +31,4 @@ EOF
 cat << EOF > cnc_version.yaml
 cnc_version: 8.0
 EOF
-sed -i 's,pip3 install ansible,pip3 install ansible==6.0.0,g' setup.sh
 ./setup.sh install
