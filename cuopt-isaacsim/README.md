@@ -1,5 +1,5 @@
 # cuOpt in Isaac Sim
-![preview](/cuopt-isaacsim-sample-extension/cuopt-isaacsim-demo/exts/omni.cuopt.demo/data/preview.png)
+![preview](preview.png)
 
 In addition to the notebook examples provided in this repository, a demonstration of cuOpt in simulation is available in Omniverse Isaac Sim. Through a series of tutorials, users can explore cuOpt and Isaac Sim features, culminating in a subset of the NVIDIA GTC Fall 2022 [cuOpt + Isaac Sim Demo](https://www.youtube.com/watch?v=OxIwIMgUJCE)
 
