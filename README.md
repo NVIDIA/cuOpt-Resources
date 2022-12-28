@@ -29,7 +29,7 @@ cuOpt uses highly optimized GPU-accelerated solvers relying on heuristics, metah
 <br><br>
 * [Cloud deployments scripts for AWS, Azure, and GCP](cloud-scripts/)
 <br><br>
-* [Demo Extension](cuopt-isaacsim-sample-extension/) showing cuOpt in Omniverse Isaac Sim
+* [cuOpt in Simulation:](cuopt-isaacsim/) demonstrates cuOpt in Omniverse Isaac Sim
 
 
 # Setup
@@ -51,7 +51,7 @@ The [docker-utilities/container-env-setup](docker-utilities/container-env-setup/
 * Pull the [cuOpt container from NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/cuopt/containers/cuopt)
 * Follow the instructions provided on NGC to run the cuOpt container and mount the example notebooks relevant to your desired API.
 
-The [docker-utilities/utitilies](docker-utilities/utilities/) directory contains convenience scripts for running cuOpt via Docker.
+The [docker-utilities/utilities](docker-utilities/utilities/) directory contains convenience scripts for running cuOpt via Docker.
 
 ## Cloud Environment
 ### Prerequisites
