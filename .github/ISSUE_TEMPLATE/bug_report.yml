@@ -1,0 +1,83 @@
+# SPDX-FileCopyrightText: Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: MIT
+
+name: Bug Report
+description: File a bug report for cuOpt
+title: "[BUG]: "
+labels: ["bug", "? - Needs Triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to help cuOpt and fill out this bug report!
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of cuOpt are you running?
+      placeholder: "example: 22.12"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: installation-method
+    attributes:
+      label: Which installation method(s) does this occur on?
+      multiple: true
+      options:
+        - Docker
+        - Conda
+        - Pip
+        - Source
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug.
+      description: Also tell us, what did you expect to happen?
+      placeholder: XYZ occured, I expected QRS results
+    validations:
+      required: true
+
+  - type: textarea
+    id: mvr
+    attributes:
+      label: Minimum reproducible example
+      description: Please supply a [minimum reproducible code example](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) here
+      render: shell
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please paste relevant error and log output here
+      render: shell
+
+  - type: textarea
+    id: env-details
+    attributes:
+      label: Environment details
+      description: Please provide any relevant environment details
+      placeholder: |
+        Please run and paste the output of the `./print_env.sh` script here.
+        The script gathers any other relevant environment details.
+      render: shell
+
+  - type: textarea
+    id: misc
+    attributes:
+      label: Other/Misc.
+      description: Please enter any other helpful information here.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://docs.rapids.ai/resources/conduct/)
+      options:
+        - label: I agree to follow cuOpt's Code of Conduct
+          required: true
+        - label: I have searched the [open bugs](https://github.com/NVIDIA/cuOpt-Resources/issues?q=is%3Aopen+is%3Aissue+label%3Abug) and have found no duplicates for this bug report
+          required: true
