@@ -28,7 +28,6 @@ body:
       multiple: true
       options:
         - Docker
-        - Conda
         - Pip
         - Source
 
