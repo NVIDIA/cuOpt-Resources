@@ -24,12 +24,13 @@
 image=nvcr.io/nvidia/cuopt/cuopt:22.12
 detached=False
 detached_log=
+port=
 
 function help {
     echo "This script runs a cuOpt server in a container. The server will be accessible at 127.0.0.1:5000."
     echo "The image should be a NVIDIA cuOpt server image or based on a NVIDIA cuOpt server image."
     echo
-    echo "usage: run_server.sh [-h] [-d [-o DETACHED_LOGFILE]] [-i IMAGE_PULL_SPEC]"
+    echo "usage: run_server.sh [-h] [-d [-o DETACHED_LOGFILE]] [-i IMAGE_PULL_SPEC] [-p PORT_NUMBER]"
     echo
     echo "options:"
     echo "  -d                    Run the container in detached mode (container runs disconnected from the terminal)."
@@ -38,9 +39,11 @@ function help {
     echo "                        will be written to the specified file in detached mode."    
     echo "  -i IMAGE_PULL_SPEC    Specifies the image to use to run cuOpt (default $image)"
     echo
+    echo "  -p PORT_NUMBER        The port number to use for the cuOpt server (default 5000)."
+    echo "                        Note: this is accomplished with docker port mapping, so the server logs will still show port 5000."
 }
 
-while getopts "hi:do:" option; do
+while getopts "hi:do:p:" option; do
     case $option in
       d)
 	 detached=True;;
@@ -51,6 +54,8 @@ while getopts "hi:do:" option; do
          exit;;
       i)
          image=$OPTARG;;
+      p)
+         port=$OPTARG;;
      \?) # Invalid option
          echo "Error: Invalid option"
          exit;;
@@ -64,9 +69,17 @@ if [ -n "$detached_log" ]; then
 	echo "WARNING: -o option ignored since -d not set"
     fi
 fi
+
+if [ -n "$port" ]; then
+    echo "Using docker port mapping, cuOpt will be available at port $port"
+    net="-p $port:5000"
+else
+    net="--network=host"
+fi
+
 echo \(There may be little or no output from the cuOpt server. This is expected\)
 if [ "$detached" == "True" ]; then
-    a=$(docker run --rm -d --gpus=all --network=host $image)
+    a=$(docker run --rm -d --gpus=all $net $image)
     echo Running cuOpt server in detached mode.
     echo
     echo To halt the server run the following command:
@@ -83,5 +96,5 @@ if [ "$detached" == "True" ]; then
     fi 
 else
     echo Press ctrl-C to halt
-    docker run --rm -it --gpus=all --network=host $image
+    docker run --rm -it --gpus=all $net $image
 fi
