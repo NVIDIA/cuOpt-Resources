@@ -88,6 +88,17 @@ To run the server in detached mode, use the -d option. Include -o *filename* to 
 ./run_server.sh -do mylogfile
 ```
 
+### Simple Service Multi-Tenancy with Docker Port Mapping
+Docker provides an easy way to way to set up a simple multi-tenant environment. With this approach separate containers are run for each tenant, and a mapping to a unique port for each container will be used to access the service.
+
+For example tenant 1 could be provided access on the default port 5000. Documentation for tenant 1 would then be accessible at http://0.0.0.0:5000/cuopt/docs
+
+```./run_server.sh -p 5000```
+
+And tenant 2 could be provided access on port 8000. Documentation for tenant 2 would then be accessible at http://0.0.0.0:8000/cuopt/docs
+
+```./run_server.sh -p 8000```
+
 ## Deriving a new cuOpt image with additional dependencies
 
 If your application has additional dependencies, it may be convenient to create a new cuOpt image which has those dependencies pre-installed. The included Dockerfile makes this simple.
