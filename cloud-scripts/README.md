@@ -206,7 +206,11 @@ To allow ssh access from a host other than the build host:
 
 * Edit the `~/.ssh/authorized_keys` file on the server and paste the new public key contents into the file on a new line
 
-### Running more than one cuOpt server on the same cloud
+### Options for Running more than one cuOpt server
+
+There are two options for running multiple cuOpt servers if you need to solve multiple problems simultaneously: use the cloud scripts to build an additional VM, or log into an existing server and launch an additional instance of cuOpt on the same machine. Note that multiple cuOpt instances on the same machine will share resources, so you should try your workload in this configuration to verify if one VM will be sufficient for your case.
+
+#### Running a Separate VM using cloud scripts
 
 Terraform will track resources that it creates and destroys in the directory where it is run. This means that each directory is tied to at most a single machine. If you would like to run more than one instance of cuOpt on the same cloud, you should copy the `*.tf` and `*.tfvars` files for that cloud to another directory. For example
 
@@ -215,6 +219,26 @@ $ mkdir aws_two
 $ cp aws/*.tf aws/*.tfvars aws_two
 $ cd aws_two
 ```
+
+#### Running additional instances of cuOpt on an existing server
+
+Log into the server and use the `cuopt-helm.sh` script to start another instance of cuOpt in a new namespace. Nodeports must be specified for the new instance since the defaults of 30000/30001 cannot be reused. If you did not modify the list of cuOpt ports to open in `terraform.tfvars` before you created the VM, only the default ports will be open and you will have to edit the firewall rules for the VM to allow new ports (see the documentation for your cloud provider on how to do this through the console or CLI).
+
+From the server:
+```bash
+$ cd scripts/
+$ export API_KEY=<my valid NGC api-key>
+$ ./cuopt-helm.sh -s 30002 -j 30003 -n cuopt-two # start a new instance in the cuopt-two namespace with the api server on port 30002 and the notebook server on 30003
+```
+
+With the current helm chart, both ports must always be set even if only the API server or notebook server is deployed; this will be fixed in a future version.
+
+For additional options to set the server type and the cuOpt chart version see the help:
+```
+$ ./cuopt-helm.sh -h
+```
+
+Note that this `cuopt-helm.sh` script may also be used standalone to start cuOpt on any Kubernetes cluster where the NVIDIA GPU operator has been installed.
 
 ## Cloud Local
 
