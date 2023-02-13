@@ -75,7 +75,7 @@ echo "Jupyter server port: $NODE_PORT_NOTEBOOK"
 kubectl create namespace $NAMESPACE
 
 if [ ! -d "$CUOPT_CHART" ]; then
-    helm fetch https://helm.ngc.nvidia.com/nvstaging/cuopt/charts/$CUOPT_CHART --username='$oauthtoken' --password=$API_KEY --untar
+    helm fetch https://helm.ngc.nvidia.com/nvidia/cuopt/charts/$CUOPT_CHART --username='$oauthtoken' --password=$API_KEY --untar
 fi
 
 # Always set the port for each service, even if the service is not enabled.
