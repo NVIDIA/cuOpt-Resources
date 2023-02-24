@@ -98,7 +98,7 @@ def url():
 
 def post_cost_matrix(matrix, data_params):
     cost_matrix_response = requests.post(
-        url() + "add_cost_matrix",
+        url() + "set_cost_matrix",
         params=data_params,
         json={"cost_matrix": {"0": matrix}})
     print(f"\nCOST MATRIX ENDPOINT RESPONSE: {cost_matrix_response.json()}\n")
