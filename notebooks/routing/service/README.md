@@ -1,9 +1,9 @@
 # cuOpt Server Notebooks
 
-Contains a collection of Jupyter Notebooks that outline how cuOpt REST endpoints can be used to solve a wide variety of problems.
+Contains a collection of Jupyter Notebooks that outline how cuOpt service endpoints can be used to solve a wide variety of problems.
 
 ## Summary
-Each notebook represents an example use case for NVIDIA cuOpt. All notebooks demonstrate high level problem modeling leveraging the cuOpt RESTful service.  In addition, each notebook covers additional cuOpt features listed below alongside notebook descriptions
+Each notebook represents an example use case for NVIDIA cuOpt. All notebooks demonstrate high level problem modeling leveraging the cuOpt service.  Each notebook also covers additional cuOpt features listed below alongside notebook descriptions
 
 - **cost_matrix_creation.ipynb :** A notebook demonstrating how to build a cost matrix for various problem types
     - *Additional Features:* 
@@ -14,7 +14,7 @@ Each notebook represents an example use case for NVIDIA cuOpt. All notebooks dem
     - *Additional Features:*
         - Min Vehicles Constraint
 
-- **cvrptw_service_team_routing.ipynb :** A notebook demonstrating service team routing using technicians with varied availability and skillset.
+- **cvrptw_service_team_routing.ipynb :** A notebook demonstrating service team routing using technicians with varied availability and skill set.
     - *Additional Features:*
         - Multiple Capacity (and demand) Dimensions
         - Vehicle Time Windows
