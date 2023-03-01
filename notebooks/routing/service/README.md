@@ -1,4 +1,4 @@
-# cuOpt Server Notebooks
+# cuOpt Service Notebooks
 
 Contains a collection of Jupyter Notebooks that outline how cuOpt service endpoints can be used to solve a wide variety of problems.
 
@@ -27,7 +27,7 @@ Each notebook represents an example use case for NVIDIA cuOpt. All notebooks dem
 
 - **cpdptw_intra-factory_transport.ipynb :** A notebook demonstrating intra-factory routing modeled as a pickup and delivery problem
     - *Additional Features:* 
-        - Pickup and Deliver
+        - Pickup and Delivery
         - Order Locations
         - Precedence Constraints
         - WaypointMatrix
@@ -35,4 +35,4 @@ Each notebook represents an example use case for NVIDIA cuOpt. All notebooks dem
 - **cvrptw_benchmark_gehring_homberger.ipynb :** A notebook demonstrating a benchmark run using a large academic problem instance.
 
 
-For reference [cuOpt Server Documentation](https://docs.nvidia.com/cuopt/serv_api.html)
+For reference [cuOpt Service Documentation](https://docs.nvidia.com/cuopt/serv_api.html)

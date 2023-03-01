@@ -8,7 +8,7 @@ In addition to the notebook examples provided in this repository, a demonstratio
 
 
 ## Prerequisites
-- Ubuntu 18.04/20.04 sor Windows 10
+- Ubuntu 18.04/20.04 or Windows 10
  - RTX capable NVIDIA GPU (GeForce RTX 2070 or newer)
  - Running instance of the cuOpt service
  - [NVIDIA Omniverse Launcher](https://www.nvidia.com/en-us/omniverse/download/). Additional information about the Omniverse Launcher can be found [here](https://www.youtube.com/watch?v=WqvS96z_3cw)
