@@ -10,7 +10,7 @@ Use of NVIDIA cuOpt is subject to the [End User License Agreement](https://docs.
 
 ## [NVIDIA cuOpt](https://docs.nvidia.com/cuopt/user-guide/license.html)
 
-cuOpt uses highly optimized GPU-accelerated solvers relying on heuristics, metaheuristics, and optimization. In addition to providing dramatically accelerated, world class solutions to some of the most difficult optimization problems, NVIDIA cuOpt prioritizes ease of use through high level Python SDK and service APIs
+cuOpt uses highly optimized GPU-accelerated solvers relying on heuristics, metaheuristics, and optimization. In addition to providing dramatically accelerated, world class solutions to some of the most difficult optimization problems, NVIDIA cuOpt prioritizes ease of use through high level service APIs
 
  [cuOpt Docs](https://docs.nvidia.com/cuopt/)
 
