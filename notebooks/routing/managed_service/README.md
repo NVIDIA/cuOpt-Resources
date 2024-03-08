@@ -19,6 +19,12 @@ Each notebook represents an example use case for NVIDIA cuOpt. All notebooks dem
         - Multiple Capacity (and demand) Dimensions
         - Vehicle Time Windows
 
+- **cvrpstw_priority_routing.ipynb :** A notebook demonstrating routing of mixed priority orders
+    - *Additional Features:*
+        - Secondary Cost Matrix
+        - Soft Time Windows
+        - Penalties
+
 - **cpdptw_intra-factory_transport.ipynb :** A notebook demonstrating intra-factory routing modeled as a pickup and delivery problem
     - *Additional Features:* 
         - Pickup and Deliver
@@ -27,5 +33,3 @@ Each notebook represents an example use case for NVIDIA cuOpt. All notebooks dem
         - WaypointMatrix
 
 - **cvrptw_benchmark_gehring_homberger.ipynb :** A notebook demonstrating a benchmark run using a large academic problem instance.
-
-- **cpdptw-reoptmization.ipynb :** A notebook on how to reoptimize a paritally completed solution with updated changes with new orders. 
